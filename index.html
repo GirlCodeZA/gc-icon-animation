@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>GC Logo Animation</title>
     <style>
         /* svg {
             transition: all 5s ease;
@@ -20,8 +20,8 @@
         }
 
         svg:hover path{
-            transform: translate(0, 0), scale(1) !important;
-            opacity: 1;
+            transform: translate(0, 0) scale(1) !important;
+            opacity: 1 !important;
         }
 
         #right-bun {
@@ -48,6 +48,20 @@
             transform: scale(0);
         }
 
+        #left-eye,
+        #right-eye {
+            opacity: 0;
+            transition: all 2s ease;
+        }
+
+        svg:hover #left-eye,
+        svg:hover #right-eye{
+            animation: shake 5s cubic-bezier(.36,.07,.19,.97) both;
+            transform: translate3d(0, 0, 0) translate(0, 0) scale(1) !important;
+            backface-visibility: hidden;
+            perspective: 1000px;
+        }
+
         #laptop-screen {
             transform: translate(0, -175em);
         }
@@ -55,6 +69,25 @@
         #laptop-base {
             transform: translate(0, -250em);
         }
+
+        @keyframes shake {
+            10%, 90% {
+                transform: translate3d(-1px, 0, 0);
+            }
+            
+            20%, 80% {
+                transform: translate3d(2px, 0, 0);
+            }
+
+            30%, 50%, 70% {
+                transform: translate3d(-4px, 0, 0);
+            }
+
+            40%, 60% {
+                transform: translate3d(4px, 0, 0);
+            }
+        }
+
     </style>
 </head>
 <body>
